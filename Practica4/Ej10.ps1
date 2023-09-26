@@ -42,12 +42,13 @@ switch ($resp){
             Clear-Host
         }
     "f" {
-            Read-Host ""
+            $mostrar=Read-Host "Introduce la ruta del directorio que quieres mostrar"
+            Get-ChildItem -Path "$mostrar"
             Read-Host
             Clear-Host
         }
     "g" {
-            Read-Host ""
+            Get-Date
             Read-Host
             Clear-Host
         }

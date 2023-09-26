@@ -31,7 +31,7 @@ switch ($resp){
         }
     "d" {
             $borrar=Read-Host "Introduce ruta del fichero/carpeta a borrar"
-            Remove-Item $borrar -Recurse
+            Remove-Item -Path $borrar -Recurse
             Read-Host
             Clear-Host
         }

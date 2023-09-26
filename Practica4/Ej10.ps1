@@ -5,7 +5,7 @@ b) Crear un fichero nuevo
 c) Cambiar el nombre de un fichero o carpeta
 d) Borrar un archivo o carpeta
 e) Verifica si existe un fichero o carpeta
-f) Mostrar el contenido de un direcctorio
+f) Mostrar el contenido de un directorio
 g) Mostrar la fecha y hora actuales
 x) Salir"
     $resp= Read-Host "Introduce una opción"

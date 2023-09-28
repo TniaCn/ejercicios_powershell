@@ -11,14 +11,16 @@ x) Salir"
     $resp= Read-Host "Introduce una opción"
 switch ($resp){
     "a" {
+            $rutacarp=Read-Host "Introduce la ruta de la carpeta"
             $carpeta=Read-Host "Introduce el nombre de la carpeta"
-            New-Item $carpeta -ItemType Directory
+            New-Item -Path $rutacarp -Name $carpeta -ItemType Directory
             Read-Host
             Clear-Host
         }
     "b" {
+            $rutafich=Read-Host "Introduce la ruta del fichero"
             $fichero=Read-Host "Introduce el nombre del fichero"
-            New-Item $fichero -ItemType File
+            New-Item -Path $rutafich -Name $fichero -ItemType File
             Read-Host
             Clear-Host
         }

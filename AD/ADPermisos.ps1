@@ -1,5 +1,6 @@
 ﻿#Crear estructura de carpetas
 
+<#
 
 #Carpeta principal
 New-Item -Path C:\ -Name Empresa -ItemType Directory
@@ -35,3 +36,7 @@ foreach ($departamento in $dep)
     Grant-SmbShareAccess -Name $($departamento.departamento) -AccountName "Usuarios del dominio" -AccessRight Read -Force 
       
 }
+
+#>
+
+#ACLs

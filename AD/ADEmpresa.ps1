@@ -7,7 +7,7 @@ New-ADOrganizationalUnit -Name "PERSONAL" -Path "OU=EMPRESA,$Path" -ProtectedFro
 New-ADOrganizationalUnit -Name "PRODUCCION" -Path "OU=EMPRESA,$Path" -ProtectedFromAccidentalDeletion $false
 New-ADOrganizationalUnit -Name "VENTAS" -Path "OU=EMPRESA,$Path" -ProtectedFromAccidentalDeletion $false
 
-
+#Crear los grupos
 $dep = Import-Csv C:\Users\Administrador\Documents\archivos\departamentos.csv -delimiter ";"
 foreach ($departamento in $dep)
 {
@@ -16,7 +16,7 @@ foreach ($departamento in $dep)
     
 }
 
-
+#Crear los usuarios y meterlos en sus grupos correspondientes
 $empl=Import-Csv C:\Users\Administrador\Documents\archivos\empleados.csv -delimiter ";"
 
 foreach ($empleados in $empl)

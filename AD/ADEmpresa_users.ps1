@@ -1,5 +1,5 @@
 ﻿#Crear carpeta Empresa_users
-<#
+
 New-Item -ItemType Directory -Path "C:\Empresa_users"
 
 #Crear carpetas particulares de los usuarios
@@ -45,13 +45,13 @@ foreach ($empleados in $empl)
     $acl | Set-Acl -Path C:\Empresa_users\$nombre
    
 }
-#>
+
 #Montar la carpeta personal en la unidad Z: y montar la carpeta de empresas en la unidad Y:
 
 $empl=Import-Csv C:\Users\Administrador\Documents\archivos\empleados.csv -delimiter ";"
 foreach ($empleados in $empl)
 {
-Set-ADUser -Identity "$($empleados.nombre).$($empleados.apellido)" -ScriptPath "carpetas.bat" -HomeDrive "Z:" -HomeDirectory "\\EMPRESA-DC1\Empresa_users$\$($empleados.nombre).$($empleados.apellido)"
+Set-ADUser -Identity "$($empleados.nombre).$($empleados.apellido)" -ScriptPath "$($empleados.departamento).bat" -HomeDrive "Z:" -HomeDirectory "\\EMPRESA-DC1\Empresa_users$\$($empleados.nombre).$($empleados.apellido)"
 }
 
 

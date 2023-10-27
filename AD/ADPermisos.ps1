@@ -1,11 +1,12 @@
 ﻿#Crear estructura de carpetas
 
+$dep = Import-Csv C:\Users\Administrador\Documents\archivos\departamentos.csv -delimiter ";"
 
 #Carpeta principal
 New-Item -Path C:\ -Name Empresa -ItemType Directory
 
 #Subcarpetas
-$dep = Import-Csv C:\Users\Administrador\Documents\archivos\departamentos.csv -delimiter ";"
+
 foreach ($departamento in $dep)
 {
     Write-Host $($departamento.departamento), $($departamento.descripcion)
@@ -16,16 +17,12 @@ foreach ($departamento in $dep)
 
 #Dar permisos
 
-
-$dep = Import-Csv C:\Users\Administrador\Documents\archivos\departamentos.csv -delimiter ";"
 foreach ($departamento in $dep)
 {
     Write-Host $($departamento.departamento), $($departamento.descripcion)
     New-SmbShare -Path C:\Empresa\$($departamento.departamento) -Name $($departamento.departamento)
 }
 
-
-$dep = Import-Csv C:\Users\Administrador\Documents\archivos\departamentos.csv -delimiter ";"
 foreach ($departamento in $dep)
 {
     Write-Host $($departamento.departamento), $($departamento.descripcion)

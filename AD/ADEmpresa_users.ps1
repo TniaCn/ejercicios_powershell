@@ -20,7 +20,7 @@ Grant-SmbShareAccess -Name Empresa_users$ -AccountName "Usuarios del dominio" -A
 Revoke-SmbShareAccess -Name Empresa_users$ -AccountName Todos -Force
 
 #Permisos NTFS
-$empl=Import-Csv C:\Users\Administrador\Documents\archivos\empleados.csv -delimiter ";"
+
 foreach ($empleados in $empl)
 {
     $nombre = "$($empleados.nombre).$($empleados.apellido)"
@@ -48,7 +48,6 @@ foreach ($empleados in $empl)
 
 #Montar la carpeta personal en la unidad Z: y montar la carpeta de empresas en la unidad Y:
 
-$empl=Import-Csv C:\Users\Administrador\Documents\archivos\empleados.csv -delimiter ";"
 foreach ($empleados in $empl)
 {
 Set-ADUser -Identity "$($empleados.nombre).$($empleados.apellido)" -ScriptPath "$($empleados.departamento).bat" -HomeDrive "Z:" -HomeDirectory "\\EMPRESA-DC1\Empresa_users$\$($empleados.nombre).$($empleados.apellido)"

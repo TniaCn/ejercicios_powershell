@@ -48,12 +48,22 @@ foreach ($empleados in $empl)
 
 #Montar la carpeta personal en la unidad Z: y montar la carpeta de empresas en la unidad Y:
 
+
 foreach ($empleados in $empl)
 {
 Set-ADUser -Identity "$($empleados.nombre).$($empleados.apellido)" -ScriptPath "$($empleados.departamento).bat" -HomeDrive "Z:" -HomeDirectory "\\EMPRESA-DC1\Empresa_users$\$($empleados.nombre).$($empleados.apellido)"
 }
 
+#Perfiles móviles
 
+
+foreach ($empleados in $empl)
+{
+ if ("$($empleados.departamento)" -eq "PERSONAL"){
+ 
+    Set-ADUser -Identity "$($empleados.nombre).$($empleados.apellido)" -ProfilePath "\\EMPRESA-DC1\Empresa_users$\$($empleados.nombre).$($empleados.apellido)"
+    }
+}
 
 
 

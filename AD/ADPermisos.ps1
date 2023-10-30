@@ -36,7 +36,7 @@ foreach ($departamento in $dep)
 
 #ACL
 
-$dep = Import-Csv C:\Users\Administrador\Documents\archivos\departamentos.csv -delimiter ";"
+
 foreach ($departamento in $dep)
 {
     Write-Host $($departamento.departamento), $($departamento.descripcion)
